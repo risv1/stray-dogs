@@ -1,0 +1,27 @@
+.char_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    margin-left: 15px;
+
+    .character{
+        border: 2px solid white;
+        width: 13.5vw;
+        height: 100vh;
+        background-color: black;
+        opacity: 70%;
+        display: flex;
+        justify-content: center;
+        transition: ease-in-out 150ms;
+
+        &:hover{
+            opacity: 100%;
+            border-color: red;
+            transform: translateY(-1%);
+        }
+    }
+    
+}
+
