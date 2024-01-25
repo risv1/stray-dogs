@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-character',
@@ -9,40 +10,24 @@ import { Component } from '@angular/core';
 })
 
 export class CharacterComponent {
-  characters = [
-    { name: 'Yozano', background: "../../assets/yozano.png"},
-    { name: 'Kenji', background: "../../assets/ken.png"},
-    { name: 'Dazai', background: "../../assets/dazai.png"},
-    { name: 'Atsushi', background: "../../assets/atsushi.png"},
-    { name: 'Kunikida', background: "../../assets/kunikida.png"},
-    { name: 'Tanizaki', background: "../../assets/tanizaki.png"},
-    { name: 'Ranpo', background: "../../assets/ranpo.png"},
+  backgrounds = [
+    { name: "Yosano", background: "../../assets/backgrounds/yosanoB.png"},
+    { name: "Kenji", background: "../../assets/backgrounds/kenjiB.png"},
+    { name: "Dazai", background: "../../assets/backgrounds/dazaiB.png"},
+    { name: "Atsushi", background: "../../assets/backgrounds/atsushiB.png"},
+    { name: "Kunikida", background: "../../assets/backgrounds/kunikidaB.png"},
+    { name: "Tanizaki", background: "../../assets/backgrounds/tanizakiB.png"},
+    { name: "Ranpo", background: "../../assets/backgrounds/ranpoB.png"},
   ]
 
-  theme = "../../../assets/theme.mp3";
-  audio: HTMLAudioElement | undefined;
+  currentBackground: any;
 
-  ngOnInit(){
-    this.playAudio()
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.currentBackground = this.backgrounds.find(background => background.name.toLowerCase() === params['character']);
+    });
   }
-
-  playAudio(){
-    this.audio = new Audio();
-    this.audio.src = this.theme;
-    this.audio.load();
-    this.audio.play();
-  }
-
-  stopAudio() {
-    if(this.audio){
-      this.audio.pause();
-      this.audio.currentTime = 0;
-    }
-  }
-
-  playAgain() {
-    this.playAudio();
-  }
-
 
 }
