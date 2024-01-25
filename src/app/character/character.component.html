@@ -1,6 +1,10 @@
 <div class="char_container">
+    <div class="play">
+        <button (click)="stopAudio()">Stop</button>
+        <button (click)="playAgain()">Play</button>
+      </div>
     @for(character of characters; track character.name){
-        <div class="character" [style.backgroundImage]="'url(' + character.background + ')'"  >
+        <div class="character" [style.backgroundImage]="'url(' + character.background + ')'" >
             <h1>{{ character.name }}</h1>
         </div>
     }

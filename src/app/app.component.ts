@@ -11,5 +11,5 @@ import { CharacterComponent } from "./character/character.component";
 })
 
 export class AppComponent {
-  title = 'stray-dogs';
+ 
 }
