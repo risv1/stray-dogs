@@ -12,7 +12,7 @@
   .view {
     @include flex;
     flex-direction: row;
-    gap: 5rem;
+    gap: 2rem;
     background-color: rgba(128, 128, 128, 0.21);
     width: 75%;
     height: 90vh;
@@ -24,6 +24,7 @@
     background-size: cover;
 
     .backg {
+      margin-top: 10px;
       margin-left: auto;
       padding: 5px;
 
@@ -35,17 +36,26 @@
 
     .info {
       padding: 10px;
-      width: 100%;
+      width: 90%;
+      max-height: 100%;
+      overflow: auto;
+
       h1 {
         font-size: 3rem;
       }
 
       p {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-weight: bold;
         color: white;
       }
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container .view {
+    width: 90%;
   }
 }
 

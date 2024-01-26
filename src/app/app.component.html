@@ -1,7 +1,6 @@
 <div class="play">
   <button (click)="stopAudio()">Stop</button>
-  <button (click)="playAgain()">Play</button>
+  <button (click)="playAgain()" [disabled]="audio && !audio.paused ">Play</button>
 </div>
 
 <router-outlet />
-
