@@ -1,33 +1,33 @@
-import { Component } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-character',
   standalone: true,
-  imports: [],
+  imports: [HttpClientModule],
   templateUrl: './character.component.html',
   styleUrl: './character.component.scss'
 })
 
-export class CharacterComponent {
-  backgrounds = [
-    { name: "Yosano", background: "../../assets/backgrounds/yosanoB.png"},
-    { name: "Kenji", background: "../../assets/backgrounds/kenjiB.png"},
-    { name: "Dazai", background: "../../assets/backgrounds/dazaiB.png"},
-    { name: "Atsushi", background: "../../assets/backgrounds/atsushiB.png"},
-    { name: "Kunikida", background: "../../assets/backgrounds/kunikidaB.png"},
-    { name: "Tanizaki", background: "../../assets/backgrounds/tanizakiB.png"},
-    { name: "Ranpo", background: "../../assets/backgrounds/ranpoB.png"},
-  ]
+export class CharacterComponent implements OnInit {
 
-  currentBackground: any;
+  constructor(private route: ActivatedRoute, private httpClient: HttpClient) {}
 
-  constructor(private route: ActivatedRoute) {}
+  currentCharacter: any;
+
+  fetchCharacter(char: any) {
+    this.httpClient.get(`http://localhost:8000/api/${char}`)
+    .subscribe((response: any) => {
+      console.log(response.character)
+      this.currentCharacter = response.character
+    })
+  }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.currentBackground = this.backgrounds.find(background => background.name.toLowerCase() === params['character']);
-    });
+    this.route.paramMap.subscribe(params => {
+      this.fetchCharacter(params.get('character'))
+    })
   }
 
 }

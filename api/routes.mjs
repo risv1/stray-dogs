@@ -6,8 +6,8 @@ const router = express.Router()
 router.get('/', HelloWorld)
 
 router.get("/api/characters", async (req, res)=>{
-    const charactersData = await getCharactersData();
-    res.json({charactersData})
+    const characters = await getCharactersData();
+    res.json({characters})
 })
 
 router.get("/api/:character", async(req, res)=>{

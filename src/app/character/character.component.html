@@ -1,13 +1,23 @@
 <div class="container">
-    @if(currentBackground){
-    <div class="view" [style.backgroundImage]="'url(' + currentBackground.background + ')'">
+    @if(currentCharacter){
+    <div class="view">
         <div class="info">
-            @if(currentBackground.name=="Kunikida" || currentBackground.name=="Tanizaki" ||
-            currentBackground.name=="Dazai"){
-            <h1 style="color: white;">{{ currentBackground.name }}</h1>
+            <div>
+                <h1 style="color: white;">{{ currentCharacter.name }}</h1>
+                <p style="color: rgb(0, 174, 255);"><span style="color: red;">Ability: </span>{{
+                    currentCharacter.abilities }}</p>
+                <p style="color: rgb(0, 174, 255);"><span style="color: red;">Quote: </span>"{{ currentCharacter.quotes
+                    }}"</p>
+                <p style="color: white;">{{ currentCharacter.description }}</p>
+            </div>
+        </div>
+        <div class="backg">
+            @if(currentCharacter.name == 'Kunikida'){
+                <img [src]="currentCharacter.background" [alt]="currentCharacter.name" width="300">
             } @else {
-            <h1 style="color: black;">{{ currentBackground.name }}</h1>
+                <img [src]="currentCharacter.background" [alt]="currentCharacter.name" width="450">
             }
+
         </div>
     </div>
     }

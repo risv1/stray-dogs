@@ -1,6 +1,6 @@
 <div class="char_container">
     @for(character of characters; track character.name){
-        <div (click)="navToCharacter(character.name)" class="character" [style.backgroundImage]="'url(' + character.background + ')'" >
+        <div (click)="navToCharacter(character.name)" class="character" [style.backgroundImage]="'url(' + character.panel + ')'" >
             <h1>{{ character.name }}</h1>
         </div>
     }
