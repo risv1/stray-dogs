@@ -11,7 +11,7 @@ import { PanelComponent } from "./panel/panel.component";
 })
 
 export class AppComponent {
-    theme = "../..assets/theme.mp3";
+    theme = "../../assets/theme.mp3";
     audio: HTMLAudioElement | undefined;
   
     ngOnInit(){
