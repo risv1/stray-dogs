@@ -1,0 +1,9 @@
+[
+    { "name": "Yosano", "background": "../../assets/backgrounds/yosanoB.png"},
+    { "name": "Kenji", "background": "../../assets/backgrounds/kenjiB.png"},
+    { "name": "Dazai", "background": "../../assets/backgrounds/dazaiB.png"},
+    { "name": "Atsushi", "background": "../../assets/backgrounds/atsushiB.png"},
+    { "name": "Kunikida", "background": "../../assets/backgrounds/kunikidaB.png"},
+    { "name": "Tanizaki", "background": "../../assets/backgrounds/tanizakiB.png"},
+    { "name": "Ranpo", "background": "../../assets/backgrounds/ranpoB.png"}
+]

@@ -1,6 +1,32 @@
-.view{
+@mixin flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    @include flex;
     height: 100vh;
     width: 100%;
-    background: no-repeat;
-    background-size: cover;
+
+    .view{
+        width: 75%;
+        height: 90%;
+        animation: rain-border 4s infinite;
+        border-radius: 15px;
+        background: no-repeat;
+        background-size: cover;
+    }
+}
+
+@keyframes rain-border {
+    0% {
+        border: 5px solid rgb(255, 0, 0);
+    }
+    50% {
+        border: 5px solid rgb(0, 179, 255);
+    }
+    100% {
+        border: 5px solid rgb(255, 0, 0);
+    }
 }

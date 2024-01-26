@@ -1,7 +1,14 @@
-<div>
+<div class="container">
     @if(currentBackground){
     <div class="view" [style.backgroundImage]="'url(' + currentBackground.background + ')'">
-        hello
+        <div class="info">
+            @if(currentBackground.name=="Kunikida" || currentBackground.name=="Tanizaki" ||
+            currentBackground.name=="Dazai"){
+            <h1 style="color: white;">{{ currentBackground.name }}</h1>
+            } @else {
+            <h1 style="color: black;">{{ currentBackground.name }}</h1>
+            }
+        </div>
     </div>
     }
 </div>
